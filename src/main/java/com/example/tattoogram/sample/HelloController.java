@@ -10,6 +10,8 @@ public class HelloController {
         testing();
         return "Hello, Spring Boot!aaask";
     }
+
+    @RequestMapping("/test")
     public String testing(){
         return "Test by K";
     }
