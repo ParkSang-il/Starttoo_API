@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
     @RequestMapping("/")
     public String index() {
+        testing();
         return "Hello, Spring Boot!aaask";
+    }
+    public String testing(){
+        return "Test by K";
     }
 }
