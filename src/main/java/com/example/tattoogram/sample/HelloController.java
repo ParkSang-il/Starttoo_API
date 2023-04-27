@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
     @RequestMapping("/")
     public String index() {
-        return "Hello, Spring Boot! Github / Jenkins Noti Test";
+        return "Hello, Spring Boot! Github / Jenkins Noti Test / Java Start Test";
     }
 
     @RequestMapping("/test")
