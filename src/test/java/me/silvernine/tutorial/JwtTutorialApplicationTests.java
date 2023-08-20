@@ -1,13 +1,13 @@
-package com.example.tattoogram;
+package me.silvernine.tutorial;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TattoogramApplicationTests {
+class JwtTutorialApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
