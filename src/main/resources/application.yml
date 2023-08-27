@@ -1,31 +1,42 @@
 spring:
 
-  h2:
-    console:
-      enabled: true
-
   datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
+    url: jdbc:mariadb://pju2251.synology.me:3307/STARTTOO?serverTimezone=UTC&characterEncoding=UTF-8
+    username: pju2251
+    password: "!!teamgod00"
+    driver-class-name: org.mariadb.jdbc.Driver
 
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
-        format_sql: true
+        #        default_batch_size: 1000
         show_sql: true
-    defer-datasource-initialization: true
+        format_sql: true
+        use_sql_comments: true
 
-jwt:
-  header: Authorization
-  #HS512 알고리즘을 사용할 것이기 때문에 512bit, 즉 64byte 이상의 secret key를 사용해야 한다.
-  #echo 'silvernine-tech-spring-boot-jwt-tutorial-secret-silvernine-tech-spring-boot-jwt-tutorial-secret'|base64
-  secret: c2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQtc2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQ=
-  token-validity-in-seconds: 86400
+  sql:
+    init:
+      mode: always
+
+#jwt:
+#  header: Authorization
+#  #HS512 알고리즘을 사용할 것이기 때문에 512bit, 즉 64byte 이상의 secret key를 사용해야 한다.
+#  #echo 'silvernine-tech-spring-boot-jwt-tutorial-secret-silvernine-tech-spring-boot-jwt-tutorial-secret'|base64
+#  secret: c2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQtc2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQ=
+#  token-validity-in-seconds: 86400
+
+springdoc:
+  api-docs:
+    path: /docs # 접속 path 설정
+
+  swagger-ui:
+    path: /swagger-ui # 접속 path 설정
+    display-request-duration: true  # try it out 을 했을 때 request duration 을 추가로 찍어줌
+
+  cache:
+    disabled: true # swagger cache 설정
 
 logging:
   level:
