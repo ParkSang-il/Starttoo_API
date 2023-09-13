@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FeedListDto {
+    private Integer idx;
     private String content;
     private String name;
     private String img_path;
