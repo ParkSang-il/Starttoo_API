@@ -44,8 +44,13 @@ public class FeedListService {
     /*
      * 좋아요 테스트
      */
-    public boolean setLikeIt() throws Exception{
-        feedListRepository.likeIt(new FeedListDto(1, "Startoo_official1"));
+    public boolean setLikeIt(FeedListParam feedListParam) throws Exception{
+        System.out.println(feedListParam.getLike());
+        if(feedListParam.getLike() == 1){
+            feedListRepository.likeIt(new FeedListDto(feedListParam.getIdx(), feedListParam.getName()));
+        }else{
+            feedListRepository.unLikeIt(new FeedListDto(feedListParam.getIdx(), feedListParam.getName()));
+        }
         return true;
     }
 }

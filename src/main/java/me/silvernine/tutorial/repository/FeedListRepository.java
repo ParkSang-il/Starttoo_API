@@ -29,4 +29,7 @@ public interface FeedListRepository {
 
     @Update("update feed_list set `like` = `like` + 1 where `name` = #{name} and `idx` = #{idx}")
     void likeIt(FeedListDto likeItMapperDto);
+
+    @Update("update feed_list set `like` = `like` - 1 where `name` = #{name} and `idx` = #{idx}")
+    void unLikeIt(FeedListDto likeItMapperDto);
 }
