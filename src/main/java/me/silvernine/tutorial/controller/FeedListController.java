@@ -32,6 +32,6 @@ public class FeedListController {
     @Tag(name="[@feedlist] 피드 등록 테스트 API")
     @GetMapping("/insertFeed")
     public void insertFeed() throws Exception{
-//        feedListService.setFeedInsert();
+        feedListService.setFeedInsert();
     }
 }
