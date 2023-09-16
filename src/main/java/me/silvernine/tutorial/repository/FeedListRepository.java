@@ -1,5 +1,6 @@
 package me.silvernine.tutorial.repository;
 
+import me.silvernine.tutorial.domain.FeedListParam;
 import me.silvernine.tutorial.dto.FeedListDto;
 import me.silvernine.tutorial.entity.FeedList;
 import org.apache.ibatis.annotations.Insert;
@@ -22,6 +23,6 @@ public interface FeedListRepository {
     @Insert("insert into feed_list(content, name, reg_date) values (#{content}, #{name}, NOW())")
     void feedSave(FeedListDto feedListMapperDto);
 
-    @Select("select * from feed_list")
-    List<FeedListDto> feedList();
+    @Select("select * from feed_list order by ${order} desc")
+    List<FeedListDto> feedList(FeedListParam feedListParam);
 }

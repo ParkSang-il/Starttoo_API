@@ -1,5 +1,6 @@
 package me.silvernine.tutorial.service;
 
+import me.silvernine.tutorial.domain.FeedListParam;
 import me.silvernine.tutorial.dto.FeedListDto;
 import me.silvernine.tutorial.repository.FeedListRepository;
 import org.springframework.stereotype.Service;
@@ -19,9 +20,16 @@ public class FeedListService {
     /**
      * 피드 리스트 정보 조회
      */
-    public ArrayList<FeedListDto> getFeedList() throws Exception{
+    public ArrayList<FeedListDto> getFeedList(FeedListParam feedListParam) throws Exception{
         ArrayList<FeedListDto> feedList = new ArrayList<>();
-        feedListRepository.feedList().forEach(e->feedList.add(e));
+
+        String order = feedListParam.getOrder();
+        feedListParam.setOrder("reg_date");
+        if (order != "1") {
+            feedListParam.setOrder("`like`");
+        }
+
+        feedListRepository.feedList(feedListParam).forEach(e->feedList.add(e));
 
         return feedList;
     }
@@ -29,7 +37,8 @@ public class FeedListService {
     /**
      * 피드 등록 테스트
      */
-    public void setFeedInsert() throws Exception{
-        feedListRepository.feedSave(new FeedListDto("mybatis컨텐츠 등록", "mybatis"));
-    }
+//    public void setFeedInsert() throws Exception{
+//        FeedListDto feedListDto = new FeedListDto();
+//        feedListRepository.feedSave(feedListDto.set("mybatis컨텐츠 등록", "mybatis"));
+//    }
 }
