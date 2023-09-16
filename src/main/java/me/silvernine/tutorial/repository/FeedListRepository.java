@@ -5,6 +5,7 @@ import me.silvernine.tutorial.entity.FeedList;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -24,4 +25,7 @@ public interface FeedListRepository {
 
     @Select("select * from feed_list")
     List<FeedListDto> feedList();
+
+    @Update("update feed_list set `like` = `like` + 1 where `name` = #{name} and `idx` = #{idx}")
+    void likeIt(FeedListDto likeItMapperDto);
 }

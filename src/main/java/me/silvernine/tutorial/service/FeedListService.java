@@ -32,4 +32,12 @@ public class FeedListService {
     public void setFeedInsert() throws Exception{
         feedListRepository.feedSave(new FeedListDto("mybatis컨텐츠 등록", "mybatis"));
     }
+
+    /*
+     * 좋아요 테스트
+     */
+    public boolean setLikeIt() throws Exception{
+        feedListRepository.likeIt(new FeedListDto(1, "Startoo_official1"));
+        return true;
+    }
 }
