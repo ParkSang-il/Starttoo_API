@@ -28,4 +28,9 @@ public class FeedListDto {
         this.content = content;
         this.name = name;
     }
+
+    public FeedListDto (int idx, String name) {
+        this.idx = idx;
+        this.name = name;
+    }
 }
