@@ -41,7 +41,7 @@ public class FeedListService {
         feedListRepository.feedSave(new FeedListDto("mybatis컨텐츠 등록", "mybatis"));
     }
 
-    /*
+    /**
      * 좋아요 테스트
      */
     public boolean setLikeIt(FeedListParam feedListParam) throws Exception{

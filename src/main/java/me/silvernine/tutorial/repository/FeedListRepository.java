@@ -2,7 +2,6 @@ package me.silvernine.tutorial.repository;
 
 import me.silvernine.tutorial.domain.FeedListParam;
 import me.silvernine.tutorial.dto.FeedListDto;
-import me.silvernine.tutorial.entity.FeedList;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

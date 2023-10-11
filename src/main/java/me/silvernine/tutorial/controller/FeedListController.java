@@ -3,6 +3,7 @@ package me.silvernine.tutorial.controller;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import me.silvernine.tutorial.domain.FeedListParam;
 import me.silvernine.tutorial.dto.FeedListDto;
+import me.silvernine.tutorial.dto.FeedTagDto;
 import me.silvernine.tutorial.entity.FeedList;
 import me.silvernine.tutorial.service.FeedListService;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +30,7 @@ public class FeedListController {
         return ResponseEntity.ok(new HashMap<>(){{put("recommendList", feedList);}});
     }
 
-    @Tag(name="[@feedlist] 피드 등록 테스트 API")
+    @Tag(name="[@insertfeed] 피드 등록 테스트 API")
     @GetMapping("/insertFeed")
     public void insertFeed() throws Exception{
         feedListService.setFeedInsert();
