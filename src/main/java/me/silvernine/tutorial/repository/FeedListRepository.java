@@ -26,9 +26,9 @@ public interface FeedListRepository {
     @Select("select * from feed_list order by ${order} desc")
     List<FeedListDto> feedList(FeedListParam feedListParam);
 
-    @Update("update feed_list set `like` = `like` + 1 where `name` = #{name} and `idx` = #{idx}")
+    @Update("update feed_list set `like` = `like` + 1 where `idx` = #{idx}")
     void likeIt(FeedListDto likeItMapperDto);
 
-    @Update("update feed_list set `like` = `like` - 1 where `name` = #{name} and `idx` = #{idx}")
+    @Update("update feed_list set `like` = `like` - 1 where `idx` = #{idx}")
     void unLikeIt(FeedListDto likeItMapperDto);
 }
