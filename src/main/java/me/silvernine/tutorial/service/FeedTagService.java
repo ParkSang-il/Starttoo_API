@@ -1,6 +1,7 @@
 package me.silvernine.tutorial.service;
 
 import me.silvernine.tutorial.dto.FeedTagDto;
+import me.silvernine.tutorial.dto.TattooThemaDto;
 import me.silvernine.tutorial.repository.FeedTagRepository;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,17 @@ public class FeedTagService {
         feedTagRepository.feedTag().forEach(e->feedTagList.add(e));
 
         return feedTagList;
+    }
+
+    /**
+     * 사용중인 타투테마 호출
+     */
+    public ArrayList<TattooThemaDto> getTattooThemaList() throws Exception{
+
+        ArrayList<TattooThemaDto> tattooThemaList = new ArrayList<>();
+        feedTagRepository.tattooThema().forEach(e->tattooThemaList.add(e));
+
+        return tattooThemaList;
     }
 
 }
