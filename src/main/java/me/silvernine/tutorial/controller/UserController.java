@@ -28,8 +28,10 @@ public class UserController {
 
     @Tag(name="[@user] Like Interaction API")
     @PostMapping("/likeIt")
-    public ResponseEntity<?> likeIt(FeedListParam feedListParam) throws Exception{
-        // System.out.println(feedListParam.getLike());
+    public ResponseEntity<?> likeIt(@ModelAttribute FeedListParam feedListParam) throws Exception{
+        System.out.println("----------------------1-");
+        System.out.println(feedListParam.getLike());
+        System.out.println(feedListParam.getIdx());
         boolean likeIt = feedListService.setLikeIt(feedListParam);
         return ResponseEntity.ok(new HashMap<>(){{put("likeResult", likeIt);}});
     }

@@ -29,8 +29,7 @@ public class FeedListDto {
         this.name = name;
     }
 
-    public FeedListDto (int idx, String name) {
+    public FeedListDto (int idx) {
         this.idx = idx;
-        this.name = name;
     }
 }

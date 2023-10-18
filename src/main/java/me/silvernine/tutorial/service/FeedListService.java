@@ -45,11 +45,10 @@ public class FeedListService {
      * 좋아요 테스트
      */
     public boolean setLikeIt(FeedListParam feedListParam) throws Exception{
-        System.out.println(feedListParam.getLike());
         if(feedListParam.getLike() == 1){
-            feedListRepository.likeIt(new FeedListDto(feedListParam.getIdx(), feedListParam.getName()));
+            feedListRepository.likeIt(new FeedListDto(feedListParam.getIdx()));
         }else{
-            feedListRepository.unLikeIt(new FeedListDto(feedListParam.getIdx(), feedListParam.getName()));
+            feedListRepository.unLikeIt(new FeedListDto(feedListParam.getIdx()));
         }
         return true;
     }
